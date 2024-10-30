@@ -11,15 +11,12 @@ const apiUrl="https://fakestoreapi.com"
 
 app.use(e.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
-
+const category = await axios.get(apiUrl+"/products/categories");
 const testimonyUrl="./JSON/testimonial.json"
 
 app.get("/",async(req,res)=>{
     try {
         const result = await axios.get(apiUrl+"/products");
-        const category = await axios.get(apiUrl+"/products/categories");
-        //console.log(category.data);
-        //console.log("result : ",result.data);
         res.render("index.ejs",{data:result.data, category:category.data});
     } catch (error) {
         console.log("error : ",error);
@@ -59,7 +56,7 @@ app.post("/product",async(req,res)=>{
         }
         
         result = await axios.get(apiUrl+"/products"+displayed);
-        const category = await axios.get(apiUrl+"/products/categories");
+        
         console.log(category.data);
         res.render("display.ejs",{data:result.data, category:category.data});
     } catch (error) {
@@ -68,8 +65,13 @@ app.post("/product",async(req,res)=>{
     }
 })
 
+app.get("/input",(req,res)=>{
+    let headingText="Add New Product";
+    res.render("input.ejs",{category:category.data, head:headingText});
+}
+)
+
 app.get("/login",async(req,res)=>{
-    const category = await axios.get(apiUrl+"/products/categories");
     console.log(category.data);
     res.render("login.ejs",{category:category.data});
 })
@@ -77,3 +79,7 @@ app.get("/login",async(req,res)=>{
 app.listen(port, () => {
     console.log(`Server running on port ${port}`);
   });  
+
+function capitalizeFirstLetter(val) {
+    return String(val).charAt(0).toUpperCase() + String(val).slice(1);
+}

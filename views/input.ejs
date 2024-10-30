@@ -1,0 +1,90 @@
+<%-include("./partials/header.ejs")%>
+<section class="inventoryForm">
+    <form action="/submit" method="POST" enctype="multipart/form-data">
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col">
+                <h2><%=head%></h2>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col border px-3 py-3 me-2" style="--bs-border-opacity: .5;">
+                <div class="row mb-1">
+                    <div class="col px-2">
+                        <label class="form-label">Product Name :</label>
+                        <input id="title-text" type="text" name="title" class="form-control height-auto" aria-label="" aria-describedby="inputGroup-sizing-sm">
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col mb-1">
+                        <label class="form-label">Product Price :</label>
+                        <input id="title-text" type="text" name="price" class="form-control height-auto" aria-label="" aria-describedby="inputGroup-sizing-sm">
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col px-2">
+                        <label class="form-label">Product Description :</label>
+                        <textarea id="title-text" type="text" name="description" class="form-control" style="height:180px" aria-label="" aria-describedby="inputGroup-sizing-sm"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="col px-3 py-3 border ms-2" style="--bs-border-opacity: .5;">
+                <div class="row mb-2">
+                    <div class="col-4 text-end">
+                        <label class="form-label">Product Category :</label>
+                    </div>
+                    <div class="btn-group dropend col-4 text-end">
+                        <select name="category" id="category">
+                            <%category.forEach((item)=>{%>
+                                <option class="text-capitalize" value="<%=item%>"><%=item%></option>
+                            <%})%>
+                        </select>
+                    </div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-4 text-end">
+                        <label for="imageUpload">Upload an Image</label>
+                    </div>
+                    <div class="col">
+                        <input type="file" name="image" class="form-control-file" id="imageUpload" accept=".jpg, .jpeg, .png" onchange="previewImage(event)">
+                        <h5>Image Preview:</h5>
+                        <div id="imagePreview" class="border rounded" style="width: 200px; height: 200px; display: flex; align-items: center; justify-content: center;">
+                            <span class="text-muted">No image selected</span>
+                        </div>
+                    </div>
+                    <div class="row mt-2 justify-content-end">
+                        <div class="col text-end">
+                            <button type="submit" class="btn btn-primary mt-3">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+</section>
+
+<script>
+    function previewImage(event) {
+      const imagePreview = document.getElementById('imagePreview');
+      imagePreview.innerHTML = ''; // Clear previous preview
+      
+      const file = event.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          const img = document.createElement('img');
+          img.src = e.target.result;
+          img.alt = "Uploaded Image";
+          img.style.maxWidth = '100%';
+          img.style.maxHeight = '100%';
+          imagePreview.appendChild(img);
+        }
+        reader.readAsDataURL(file);
+      }
+    }
+</script>
+
+<%-include("./partials/footer.ejs")%>
+
+title, price, description, image, category

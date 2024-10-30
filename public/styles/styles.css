@@ -1,15 +1,22 @@
 .header{
     position:sticky;
     top:0;
+    z-index: 10;
 }
 
 body{
     background-color: aqua;
+    z-index: 9;
 }
 
 div{
     border:1px solid black;
 }
+
+.card div{
+    border:1px solid red;
+}
+
 
 .icon{
     height:40px;

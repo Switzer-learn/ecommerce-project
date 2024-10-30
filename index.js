@@ -14,18 +14,13 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 const testimonyUrl="./JSON/testimonial.json"
 
-function getUniqueCategory(data){
-    let category=data.map(item=>item.category);
-    return [...new Set(category)];
-}
-
 app.get("/",async(req,res)=>{
     try {
         const result = await axios.get(apiUrl+"/products");
-        const category = getUniqueCategory(result.data);
-        //console.log(testimony);
+        const category = await axios.get(apiUrl+"/products/categories");
+        //console.log(category.data);
         //console.log("result : ",result.data);
-        res.render("index.ejs",{data:result.data, category:category});
+        res.render("index.ejs",{data:result.data, category:category.data});
     } catch (error) {
         console.log("error : ",error);
         res.render("index.ejs", {data:error.response});
@@ -47,36 +42,36 @@ app.post("/product",async(req,res)=>{
                 displayed="";
                 break;
             case "men's clothing":
-                displayed="men's clothing";
+                displayed="/category/men's clothing";
                 break;
             case "jewelry":
-                displayed="jewelry";
+                displayed="/category/jewelry";
                 break;
             case "electronics":
-                displayed="electronics";
+                displayed="/category/electronics";
                 break;
             case "woman's clothing":
-                displayed="woman's clothing";
+                displayed="/category/woman's clothing";
                 break;
             default:
                 console.log();
                 break;
         }
-        console.log("req.body.name : "+req.body.choice);
-        console.log("displayed : "+displayed);
-        if(displayed=""){
-            result = await axios.get(apiUrl+"/products");    
-        }else{
-            result = await axios.get(apiUrl+"/products/category/"+displayed);
-        }
-        const category = getUniqueCategory(await axios.get(apiUrl+"/products").data);
-        console.log("category :"+category);
-        console.log("result :"+result.data)
-        res.render("display.ejs",{data:result.data, category:category});
+        
+        result = await axios.get(apiUrl+"/products"+displayed);
+        const category = await axios.get(apiUrl+"/products/categories");
+        console.log(category.data);
+        res.render("display.ejs",{data:result.data, category:category.data});
     } catch (error) {
         console.log("error : ",error);
         res.render("display.ejs", {data:error.response});
     }
+})
+
+app.get("/login",async(req,res)=>{
+    const category = await axios.get(apiUrl+"/products/categories");
+    console.log(category.data);
+    res.render("login.ejs",{category:category.data});
 })
 
 app.listen(port, () => {

@@ -1,0 +1,29 @@
+<%-include("./partials/header.ejs")%>
+
+<section class="bodyDisplay"></section>
+    <div class="container">
+        <h2>Our Products</h2>
+        <div class="row">
+            <% if(data){
+            data.forEach(item => {%>
+                <div class="card col-3">
+                <div class="cardImgContainer "><img src="<%=item.image%>" class="card-img-top cardImg" alt="..."></div>
+                <div class="card-body text-wrap text-truncate">
+                  <h5 class="card-title"><%=item.title%></h5>
+                  <h6 class="card-subtitle mb-2 text-body-secondary">$ <%=item.price%></h6>
+                  
+                </div>
+                <div class="card-footer d-flex justify-content-between align-items-center">
+                  <a href="#" class="">Details</a>
+                  <a href="#" class="btn btn-primary text-end">Add to cart</a>
+                </div>
+              </div>
+            <%})}else{%>
+                <p>Error: <%= error ? error.data : "No data available" %></p>
+            <%}%>
+            
+        </div>
+    </div>
+</section>
+
+<%-include("./partials/footer.ejs")%>

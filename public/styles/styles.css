@@ -1,0 +1,58 @@
+.header{
+    position:sticky;
+    top:0;
+}
+
+body{
+    background-color: aqua;
+}
+
+div{
+    border:1px solid black;
+}
+
+.icon{
+    height:40px;
+    width:30px;
+}
+
+.cardImgContainer{
+    height:200px;
+    width:16rem;
+}
+
+.cardImgContainer img{
+    height:100%;
+    width:100%;
+    object-fit: contain;
+    align-self: center;
+    
+}
+
+.carousel-item img{
+    height:100%;
+    width:100%;
+    object-fit: contain;
+    align-self: center;
+}
+
+.carousel-item{
+    height:500px;
+    background-color: white;
+}
+
+.carouselText{
+    font-family: monospace;
+    background-color: black;
+    opacity:0.5;
+}
+
+.carousel-control-next-icon {
+    background-color: gray; 
+    opacity:0.2;
+}
+
+.carousel-control-prev-icon {
+    background-color: gray;
+    opacity:0.2;
+}

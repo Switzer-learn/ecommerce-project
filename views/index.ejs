@@ -1,0 +1,80 @@
+<%-include("./partials/header.ejs")%>
+    <section class="bodyTop">
+        <div class="container col-xxl-8 px-4 py-5">
+            <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+              <div class="col-10 col-sm-8 col-lg-6">
+                <img src="bootstrap-themes.png" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700" height="500" loading="lazy">
+              </div>
+              <div class="col-lg-6">
+                <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">Welcome to Margrave Store – Your One-Stop Online Shop!</h1>
+                <p class="lead">Explore a world of endless possibilities with our diverse range of products, from stylish clothing and trendy bags to cutting-edge electronics. At Margrave Store, we believe shopping should be convenient and enjoyable, which is why we’ve curated a collection that meets all your needs in one place. Dive in and discover the perfect items to enhance your lifestyle!
+
+                </p>
+                <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                  <button type="button" class="btn btn-light btn-lg px-4 me-md-2">Shop Now</button>
+                </div>
+              </div>
+            </div>
+          </div>
+    </section>
+
+    <section class="productCarousel">
+        <div class="container">
+            <h1 class="font-monospace">What We Sell</h1>
+            <% if(data){%>  
+            <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <% data.forEach((item, index) => { %>
+                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="<%= index %>" 
+                            class="<%= index === 0 ? 'active' : '' %>" 
+                            aria-current="<%= index === 0 ? 'true' : 'false' %>" 
+                            aria-label="Slide <%= index + 1 %>" ></button>
+                <% }) %>
+            </div>
+            <div class="carousel-inner">
+                <% data.forEach((item, index) => { %>
+                    <div class="carousel-item <%= index === 0 ? 'active' : '' %>">
+                        <img src="<%= item.image %>" class="d-block" alt="<%= item.title %>">
+                        <div class="carousel-caption d-none d-md-block carouselText bg-body-dark">
+                            <h5><%= item.title %></h5>
+                            <p><%= item.description %></p>
+                            <p>$<%=item.price%></p>
+                        </div>
+                    </div>
+                <% }) %>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+            <%}else{%>
+                <h1>no data to display</h1>
+                <%}%>
+            </div>
+    </section>
+
+    
+
+    <section class="whyUS">
+      <div class="container text-center px-2 py-5">
+        <div class="py-5 px-2">
+        <div><h1>Our Products</h1></div>
+        <div><h4>Diverse and Unique Offerings</h4></div>
+        <div><p>What makes Margrave Store stand out is our unique assortment of products. We source our clothing, bags, and electronics from trusted brands and innovative designers, ensuring you have access to the latest trends and technologies. Whether you're looking for the perfect outfit, a chic bag, or the latest gadget, our selection is designed to inspire and satisfy.</p></div>
+      </div>
+      <div class="py-5 px-2">
+        <div><h1>Why Choose Us?</h1></div>
+        <div><p>Our customers appreciate our commitment to variety and excellence. We aim to create a shopping experience that’s not only easy and enjoyable but also tailored to your individual preferences. With a straightforward return policy and dedicated customer support, we’re here to make your online shopping experience as smooth as possible!</p></div>
+      </div>
+    </div>
+    </section>
+
+    <section class="customerTestimony">
+      
+    </section>
+<%-include("./partials/footer.ejs")%>

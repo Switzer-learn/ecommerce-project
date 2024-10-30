@@ -1,0 +1,59 @@
+{
+    "testimonials": [
+      {
+        "id": 0,
+        "category": "Clothing",
+        "name": "Emily R.",
+        "text": "I recently ordered a dress for a wedding, and I couldn't be happier! The fit is perfect, and the quality is amazing. I've received so many compliments. I’ll definitely be back for more!"
+      },
+      {
+        "id": 1,
+        "category": "Clothing",
+        "name": "James T.",
+        "text": "The t-shirt I bought is not only stylish but super comfortable! It washes well and keeps its shape. I love supporting a brand that cares about quality."
+      },
+      {
+        "id": 2,
+        "category": "Clothing",
+        "name": "Sophia L.",
+        "text": "I was impressed by the variety of styles available. The leggings I ordered are my new favorites—soft, stretchy, and perfect for my workouts. Highly recommend!"
+      },
+      {
+        "id": 3,
+        "category": "Jewelry",
+        "name": "Ava M.",
+        "text": "I got a beautiful necklace from this site, and it's become my go-to accessory. The craftsmanship is stunning, and it arrived beautifully packaged. Can't wait to shop for more!"
+      },
+      {
+        "id": 4,
+        "category": "Jewelry",
+        "name": "Liam J.",
+        "text": "The ring I purchased was even more beautiful in person! It’s a perfect gift for my girlfriend. She loved it, and I loved the great customer service!"
+      },
+      {
+        "id": 5,
+        "category": "Jewelry",
+        "name": "Isabella W.",
+        "text": "I was looking for unique pieces and found just what I wanted. The earrings I ordered are not only elegant but also lightweight. I wear them every day!"
+      },
+      {
+        "id": 6,
+        "category": "Electronics",
+        "name": "Noah K.",
+        "text": "I recently bought a pair of headphones, and they exceeded my expectations! The sound quality is fantastic, and the battery life lasts all day. A great investment!"
+      },
+      {
+        "id": 7,
+        "category": "Electronics",
+        "name": "Olivia H.",
+        "text": "The tablet I ordered is exactly what I needed for work and play. It's fast and has a brilliant display. Shipping was quick, too. I’m really impressed!"
+      },
+      {
+        "id": 8,
+        "category": "Electronics",
+        "name": "Ethan S.",
+        "text": "I’ve purchased several gadgets from this site, and each one has been top-notch. The customer support team is helpful, and my orders always arrive on time."
+      }
+    ]
+  }
+  

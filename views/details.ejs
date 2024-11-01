@@ -1,0 +1,56 @@
+<%-include("./partials/header.ejs")%>
+<section class="inventoryForm">
+    <form action="/submit" method="POST" enctype="multipart/form-data">
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col">
+                <h2>Product Details</h2>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col border px-3 py-3 me-2" style="--bs-border-opacity: .5;">
+                <div class="row mb-1">
+                    <div class="col px-2 justify-content-center">
+                        <img src="<%=data.image%>" name="image" style="width: 400px;background-color: white;">
+                    </div>
+                </div>
+            </div>
+            <div class="col px-3 py-3 border ms-2" style="--bs-border-opacity: .5;">
+                <div class="row mb-2">
+                    <div class="row mb-1">
+                        <div class="col px-2">
+                            <h5><%=data.title%></h4>    
+                        </div>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col mb-1">
+                            <h5>$<%=data.price%></h4>    
+                        </div>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col px-2">
+                            <label class="fs-3 strong">Product Description</label>
+                            <p><%=data.description%></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col px-2 justify-content-between d-flex">
+                            <form action="/product" method="post">
+                                <input type="hidden" name="choice" value="<%=data.category%>">
+                                <button type="submit" class="btn btn-primary">Back</a>
+                            </form>
+                            <form id="submit" method="post">
+                                <button type="submit" class="btn btn-primary">Add to Cart</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+</section>
+
+<%-include("./partials/footer.ejs")%>
+
+title, price, description, image, category

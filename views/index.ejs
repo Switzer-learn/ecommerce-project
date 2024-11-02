@@ -1,5 +1,5 @@
 <%-include("./partials/header.ejs")%>
-    <section class="bodyTop">
+    <section class="bodyTop py-5">
         <div class="container col-xxl-8 px-4 py-5">
             <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
               <div class="col-10 col-sm-8 col-lg-6">
@@ -9,17 +9,16 @@
                 <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">Welcome to Margrave Store – Your One-Stop Online Shop!</h1>
                 <p class="lead">Explore a world of endless possibilities with our diverse range of products, from stylish clothing and trendy bags to cutting-edge electronics. At Margrave Store, we believe shopping should be convenient and enjoyable, which is why we’ve curated a collection that meets all your needs in one place. Dive in and discover the perfect items to enhance your lifestyle!</p>
                 <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-                  <button type="button" class="btn btn-light btn-lg px-4 me-md-2">Shop Now</button>
-                  <a class="nav-link" href="/input">INPUT</a>
+                  <a type="button" href="/product" class="btn btn-light btn-lg px-4 me-md-2">Shop Now</a>
                 </div>
               </div>
             </div>
           </div>
     </section>
 
-    <section class="productCarousel">
+    <section class="bodyCarousel py-5">
         <div class="container">
-            <h1 class="font-monospace">What We Sell</h1>
+            <h1 class="text-center">What We Sell</h1>
             <% if(data){%>  
             <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-indicators">
@@ -59,7 +58,7 @@
 
     
 
-    <section class="whyUS">
+    <section class="bodyBottom">
       <div class="container text-center px-2 py-5">
         <div class="py-5 px-2">
         <div><h1>Our Products</h1></div>
@@ -71,9 +70,5 @@
         <div><p>Our customers appreciate our commitment to variety and excellence. We aim to create a shopping experience that’s not only easy and enjoyable but also tailored to your individual preferences. With a straightforward return policy and dedicated customer support, we’re here to make your online shopping experience as smooth as possible!</p></div>
       </div>
     </div>
-    </section>
-
-    <section class="customerTestimony">
-      
     </section>
 <%-include("./partials/footer.ejs")%>

@@ -5,27 +5,42 @@
 }
 
 body{
-    background-color: aqua;
     z-index: 9;
 }
 
-div{
-    border:1px solid black;
+.bodyTop{
+    background-color: #3C3D37;
+    color: antiquewhite;
 }
 
-.card div{
-    border:1px solid red;
+.bodyCarousel{
+    background-color: beige;
 }
 
+.bodyBottom{
+    background-color: #3C3D37;
+    color: antiquewhite;
+}
+
+.aboutUs{
+    background-color: #3C3D37;
+    color: antiquewhite;
+    height:100vh;
+
+}
 
 .icon{
     height:40px;
     width:30px;
 }
 
+.diplayCategory{
+    background-color: darkslategray;
+    color: antiquewhite;
+}
+
 .cardImgContainer{
     height:200px;
-    width:16rem;
 }
 
 .cardImgContainer img{

@@ -1,19 +1,23 @@
 <%-include("./partials/header.ejs")%>
 
-<section class="bodyDisplay">
-    <div class="container">
-        <h2>Our Products</h2>
-        <div class="row text-center">
-          <%category.forEach(category=>{%>
-            <div class="col"><input class="btn text-capitalize font-monospace" name="choice" value="<%=category%>"></div>
-          <%})%>
-        </div>
+<section class="bodyDisplay py-3">
+    <div class="container text-center">
+        <h2 class="font-monospace">Our Products</h2>
+        <form action="/product" method="POST">
+          <div class="row text-center displayCategory">
+            <div class="col border"><input class="btn text-capitalize font-monospace" type="submit" name="choice" value="All Product"></div>
+            <%category.forEach(category=>{%>
+              <div class="col border"><input class="btn text-capitalize font-monospace" type="submit" name="choice" value="<%=category%>"></div>
+            <%})%>
+          </div>
+        </form>
+        
         <div class="row">
             <% if(data){
             data.forEach(item => {%>
-              <div class="card col-3">
-                <div class="cardImgContainer ">
-                  <img src="<%=item.image%>" class="card-img-top cardImg" alt="...">
+              <div class="card col-3 mx-2 my-2" style="width:16rem">
+                <div class="cardImgContainer" >
+                  <img src="<%=item.image%>" class="card-img-top cardImg img-fluid" alt="...">
                 </div>
                 <div class="card-body text-wrap text-truncate">
                   <h5 class="card-title"><%=item.title%></h5>
